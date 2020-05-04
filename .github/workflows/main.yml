@@ -1,0 +1,15 @@
+on: [push]
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+    - name: Hello world action step
+      id: hello
+      uses: Lana243/Lana243.github.io
+      with:
+        who-to-greet: 'Lana243'
+    # Use the output from the `hello` step
+    - name: Get the output time
+      run: echo "The time was ${{ steps.hello.outputs.time }}"
